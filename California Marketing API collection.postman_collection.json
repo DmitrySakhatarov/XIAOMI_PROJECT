@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "2306994c-59cc-457a-b7b9-75ef5635f8ef",
+		"name": "California Marketing API collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Addresses API",
+			"item": [
+				{
+					"name": "Positive Tests",
+					"item": [
+						{
+							"name": "Address for KingKong",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"address\": {\r\n        \"fullName\": {\r\n            \"firstName\": \"King\",\r\n            \"lastName\": \"Kong\"\r\n        },\r\n        \"company\": \"Banana & Co\",\r\n        \"taxInfo\": {\r\n            \"id\": null,\r\n            \"type\": null\r\n        },\r\n        \"addressLine1\": \"Gran Via de les Corts Catalanes 111\",\r\n        \"addressLine2\": \"11 apt\",\r\n        \"street\": {\r\n            \"name\": null,\r\n            \"number\": null\r\n        },\r\n        \"city\": \"Barcelona\",\r\n        \"country\": \"ESP\",\r\n        \"subdivision\": \"RI\",\r\n        \"zipCode\": \"08013\",\r\n        \"phoneNumber\": \"0987654321\",\r\n        \"location\": {\r\n            \"latitude\": 41.3646463,\r\n            \"longitude\": 2.1330808\r\n        }\r\n    },\r\n    \"setAsDefault\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses",
+									"protocol": "https",
+									"host": [
+										"addresses",
+										"wixapps",
+										"net"
+									],
+									"path": [
+										"_api",
+										"addresses-web",
+										"v1",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All addresses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"addresses\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses",
+									"protocol": "https",
+									"host": [
+										"addresses",
+										"wixapps",
+										"net"
+									],
+									"path": [
+										"_api",
+										"addresses-web",
+										"v1",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update KingKong Name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"address\": {\r\n        \"id\": \"1ab52fcc-b50b-438f-8d70-d0f1acb51b90\",\r\n        \"fullName\": {\r\n            \"firstName\": \"King\",\r\n            \"lastName\": \"Kong Junior\"\r\n        },\r\n        \"company\": \"Banana & Co\",\r\n        \"taxInfo\": {\r\n            \"id\": null,\r\n            \"type\": null\r\n        },\r\n        \"addressLine1\": \"Gran Via de les Corts Catalanes 111\",\r\n        \"addressLine2\": \"11 apt\",\r\n        \"street\": {\r\n            \"name\": null,\r\n            \"number\": null\r\n        },\r\n        \"city\": \"Barcelona\",\r\n        \"country\": \"ESP\",\r\n        \"subdivision\": \"RI\",\r\n        \"zipCode\": \"08013\",\r\n        \"phoneNumber\": \"0987654321\",\r\n        \"location\": {\r\n            \"latitude\": 41.3646463,\r\n            \"longitude\": 2.1330808\r\n        }\r\n    },\r\n    \"setAsDefault\": false,\r\n    \"fieldMask\": {\r\n        \"paths\": [\r\n            \"fullName.firstName\",\r\n            \"fullName.lastName\",\r\n            \"company\",\r\n            \"addressLine1\",\r\n            \"addressLine2\",\r\n            \"city\",\r\n            \"country\",\r\n            \"subdivision\",\r\n            \"zipCode\",\r\n            \"phoneNumber\",\r\n            \"location.latitude\",\r\n            \"location.longitude\",\r\n            \"setAsDefault\"\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/6549e4dd-96f7-4c1b-8e52-72f687797090",
+									"protocol": "https",
+									"host": [
+										"addresses",
+										"wixapps",
+										"net"
+									],
+									"path": [
+										"_api",
+										"addresses-web",
+										"v1",
+										"addresses",
+										"6549e4dd-96f7-4c1b-8e52-72f687797090"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "KingKong address",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"address\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/6549e4dd-96f7-4c1b-8e52-72f687797090",
+									"protocol": "https",
+									"host": [
+										"addresses",
+										"wixapps",
+										"net"
+									],
+									"path": [
+										"_api",
+										"addresses-web",
+										"v1",
+										"addresses",
+										"6549e4dd-96f7-4c1b-8e52-72f687797090"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "KingKong address",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/8840852f-2cb4-4e10-ac3a-1ca7c697f8c1",
+									"protocol": "https",
+									"host": [
+										"addresses",
+										"wixapps",
+										"net"
+									],
+									"path": [
+										"_api",
+										"addresses-web",
+										"v1",
+										"addresses",
+										"8840852f-2cb4-4e10-ac3a-1ca7c697f8c1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All addresses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"addresses\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses",
+									"protocol": "https",
+									"host": [
+										"addresses",
+										"wixapps",
+										"net"
+									],
+									"path": [
+										"_api",
+										"addresses-web",
+										"v1",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "688t4-ToUduZchRMrHN-OeAFRijblJSUZF0YhV7gJS8.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIyLTA0LTA1VDE1OjE4OjM3Ljc2NloiLCJ1aWQiOiIxMDk0ZmZmMS1jNGQyLTQxZjYtYjU2MC1kZDViYWVjZjljYzkiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6Ijk4NzQ0ZDQ3LTA1NDYtNDVjYy05NWI5LWExY2ZmMDMzZDBjMCIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMi0wNC0wNVQxOToxODozNy43NjZaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
